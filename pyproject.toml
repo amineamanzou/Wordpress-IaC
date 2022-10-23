@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "wordpress-iac"
+version = "0.1.0"
+description = "Ansible Project to deploy docker wordpress."
+authors = ["Amine Amanzou <amineamanzou@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+ansible = "^6.4.0"
+
+[tool.poetry.group.dev]
+optional = true
+
+[tool.poetry.group.dev.dependencies]
+ansible-lint = "^6.8.1"
+yamllint = "^1.28.0"
+molecule = "^4.0.1"
+molecule-docker = "^2.1.0"
+flake8 = "^5.0.4"
+black = "^22.10.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
