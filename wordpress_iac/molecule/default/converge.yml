@@ -1,0 +1,7 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Include amit.wordpress_iac"
+      include_role:
+        name: "amit.wordpress_iac"

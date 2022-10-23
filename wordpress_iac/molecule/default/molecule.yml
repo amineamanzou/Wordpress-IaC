@@ -1,0 +1,29 @@
+---
+
+dependency:
+  name: galaxy
+
+driver:
+  name: docker
+
+platforms:
+  - name: instance
+    image: geerlingguy/docker-centos7-ansible
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
+    pre_build_image: true
+
+provisioner:
+  name: ansible
+
+lint:
+#  set -e
+#  export ANSIBLE_COLLECTIONS_PATH=${MOLECULE_EPHEMERAL_DIRECTORY}/collections 
+#  export ANSIBLE_ROLES_PATH=${MOLECULE_PROJECT_DIRECTORY}/..
+  yamllint .
+  ansible-lint
+  flake8
+
+verifier:
+  name: ansible
